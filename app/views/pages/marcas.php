@@ -3,7 +3,7 @@
 <?php include '../inc/_navigation.php' ?>
 
 <!-- Marcas -->
-<main class="py-5 bg-dark section-angle top-left bottom-left" id="productos">
+<main class="py-5 bg-dark section-angle top-left bottom-left" id="marcas">
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-6 mx-auto text-center">

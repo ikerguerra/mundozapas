@@ -723,3 +723,7 @@ footer h5 {
     display: none;
   }
 }
+
+.form-contacto {
+  max-width: 700px;
+}
