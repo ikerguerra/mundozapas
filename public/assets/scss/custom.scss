@@ -20,5 +20,9 @@ $lead-font-weight: 500;
 $navbar-padding-x: 1.5rem;
 $navbar-padding-y: 1.25rem;
 
+body a {
+    text-decoration: none;
+}
+
 // Importa los estilos base de Bootstrap
 @import '../../../vendor/twbs/bootstrap/scss/bootstrap.scss';
