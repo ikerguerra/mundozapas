@@ -1,3 +1,4 @@
+<?php include '../../config/constantes.php' ?>
 <?php include '../inc/_header.php' ?>
 <?php include '../inc/_navigation.php' ?>
 

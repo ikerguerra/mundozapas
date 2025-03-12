@@ -1,4 +1,5 @@
-<?php include 'c:\xampp\htdocs\mundozapas\app\views\inc\_header.php' ?>
+<?php include '../../config/constantes.php' ?>
+<?php include '../inc/_header.php' ?>
 <?php include '../inc/_navigation.php' ?>
 
 <h2>Productos disponibles</h2>
