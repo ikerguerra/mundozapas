@@ -1,4 +1,5 @@
 <?php include 'config/constantes.php' ?>
+<?php include 'config/conexion.php' ?>
 <?php require('../app/views/inc/_header.php') ?>
 <?php require('../app/views/inc/_navigation.php') ?>
 
