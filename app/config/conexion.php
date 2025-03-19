@@ -2,16 +2,15 @@
 
 // Configuracion para local
 // -------------------------------------------------
-$db = 'productos';
+$dbname = 'productos';
 $host = 'localhost';
-$usuario = 'root';
-$clave = '';
+$user = 'root';
+$pass = '';
 
-$conn = "mysql:dbname={$db};host={$host};charset=utf8";
+$conexion = mysqli_connect($host, $user, $pass, $dbname);
 
-try {
-    $db = new PDO($conn, $usuario, $clave, array(PDO::ATTR_PERSISTENT => true));
-    echo '<p>Conexión OK</p>';
-} catch (PDOException $e) {
-    echo '<p>Error de conexión a la base de datos: ' . $e->getMessage();
+// Comprobar conexion
+if ($conexion->connect_error) {
+    die("Error en la conexión: " . $conexion->connect_error);
 }
+// echo "Conexión OK";
