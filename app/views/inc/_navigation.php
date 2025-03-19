@@ -29,6 +29,10 @@
                         <a class="nav-link page-scroll"
                             href="<?php echo MIURL; ?>app/views/pages/contacto.php">Contacto</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll"
+                            href="<?php echo MIURL; ?>app/views/pages/admin.php">Admin</a>
+                    </li>
                 </ul>
             </div>
         </nav>

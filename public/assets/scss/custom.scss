@@ -20,6 +20,13 @@ $lead-font-weight: 500;
 $navbar-padding-x: 1.5rem;
 $navbar-padding-y: 1.25rem;
 
+$nav-link-color: #FFF;
+$nav-tabs-link-active-bg: #212529;
+$nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #212529;
+$nav-tabs-link-active-color: $primary;
+
+$table-color: $body-color;
+
 body a {
     text-decoration: none;
 }
