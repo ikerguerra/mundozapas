@@ -21,3 +21,57 @@ $(function () {
         return false;
     });
 });
+
+document.querySelectorAll('#deleteForm').forEach(form => {
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Evita el envío del formulario por defecto
+
+        // Comprobar eliminar el producto
+        if (!confirm('¿Estás seguro?')) {
+            return;
+        }
+
+        const formData = new FormData(this);
+
+        fetch(this.action, {
+            method: this.method,
+            body: formData
+        }).then(response => {
+            if (response.ok) {
+                window.location.reload(); // Recarga la página si la solicitud fue exitosa
+            } else {
+                alert('Error al eliminar el producto');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+            alert('Error al eliminar el producto');
+        });
+    });
+});
+
+document.querySelectorAll('#deleteImgForm').forEach(form => {
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Evita el envío del formulario por defecto
+
+        // Comprobar eliminar el producto
+        if (!confirm('¿Estás seguro?')) {
+            return;
+        }
+
+        const formData = new FormData(this);
+
+        fetch(this.action, {
+            method: this.method,
+            body: formData
+        }).then(response => {
+            if (response.ok) {
+                window.location.reload(); // Recarga la página si la solicitud fue exitosa
+            } else {
+                alert('Error al eliminar el producto');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+            alert('Error al eliminar el producto');
+        });
+    });
+});

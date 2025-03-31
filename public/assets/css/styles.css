@@ -51,6 +51,11 @@ body {
   font-size: 15px;
 }
 
+.btn-form:hover {
+  color: #1de9b6;
+  border: solid 1px #1de9b6;
+}
+
 .btn.btn-primary {
   box-shadow: 0 8px 16px rgba(29, 233, 182, 0.3);
   transition: all .2s ease-out;
