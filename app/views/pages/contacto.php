@@ -11,25 +11,37 @@
             </div>
         </div>
         <div class="row mt-4 justify-content-center">
-            <form class="form-contacto">
+            <form class="form-contacto needs-validation" novalidate>
                 <div class='d-flex row'>
                     <div class="mb-3 col-6">
                         <label htmlFor="inputNombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="inputNombre" placeholder='Nombre' />
+                        <input type="text" class="form-control" id="inputNombre" placeholder='Nombre' required>
+                        <div class="invalid-feedback">
+                            El campo nombre es obligatorio
+                        </div>
                     </div>
                     <div class="mb-3 col-6">
                         <label htmlFor="inputApellido" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="inputApellido" placeholder='Apellido' />
+                        <input type="text" class="form-control" id="inputApellido" placeholder='Apellido' required>
+                        <div class="invalid-feedback">
+                            El campo apellido es obligatorio
+                        </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label htmlFor="inputEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder='email@email.com' />
+                    <input type="email" class="form-control" id="inputEmail" placeholder='email@email.com' required>
+                    <div class="invalid-feedback">
+                        El campo email es obligatorio
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label htmlFor="textAreaMensaje" class="form-label">Mensaje</label>
-                    <textarea class='form-control' name="mensaje" id="textAreaMensaje"
-                        placeholder='Escribe tu mensaje' rows="5"></textarea>
+                    <textarea class='form-control' name="mensaje" id="textAreaMensaje" placeholder='Escribe tu mensaje'
+                        rows="5" required></textarea>
+                    <div class="invalid-feedback">
+                        El campo mensaje es obligatorio
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
@@ -56,8 +68,8 @@
                 </div>
             </div>
             <iframe src="https://www.google.com/maps?q=40.4531,-3.6883&output=embed" width="auto" height="auto"
-                    style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
+                style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
         </div>
     </div>
 </main>

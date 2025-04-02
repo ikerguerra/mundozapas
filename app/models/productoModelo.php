@@ -7,6 +7,7 @@ function obtenerProducto($idProducto)
     global $conexion; // Usamos la conexión global
 
     $query = "SELECT * FROM productos WHERE productos.id_producto=$idProducto";
+    
     $resultado = mysqli_query($conexion, $query);
     
     if (!$resultado) {
@@ -32,7 +33,6 @@ function obtenerProductos()
     }
 
     $productos = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
-    
 
     return $productos;
 }
@@ -88,7 +88,7 @@ function actualizarProducto($nombre, $descripcion, $precio, $idProducto)
 {
     global $conexion;
 
-    // Prepara la consulta
+    // Prepara la consulta para evitar inyecciones SQL
     $query = "UPDATE productos SET nombre_producto = ?, descripcion_producto = ?, precio_producto = ? WHERE id_producto = ?";
     $stmt = mysqli_prepare($conexion, $query);
 
@@ -106,15 +106,16 @@ function eliminarProducto($idProducto)
 {
     global $conexion;
 
-    // Prepara la consulta
-    $query = "DELETE FROM productos WHERE id_producto = $idProducto";
+    // Prepara la consulta para evitar inyecciones SQL
+    $query = "DELETE FROM productos WHERE id_producto = ?";
+    $stmt = mysqli_prepare($conexion, $query);
 
-    if (mysqli_query($conexion, $query)) {
-        echo 'Zapatilla eliminada correctamente';
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "i", $idProducto);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
     } else {
-        echo "Error eliminando la zapatilla: " . mysqli_error($conexion);
+        return "Error: " . mysqli_error($conexion);
     }
-
-    mysqli_close($conexion);
 }
 ?>

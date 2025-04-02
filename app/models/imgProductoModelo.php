@@ -24,7 +24,7 @@ function insertarImgsProductos($imagenUrl, $idProducto)
 {
     global $conexion;
 
-    // Prepara la consulta
+    // Prepara la consulta para evitar inyecciones SQL
     $query = "INSERT INTO imagenes_productos (imagen_url, id_producto) VALUES (?, ?)";
     $stmt = mysqli_prepare($conexion, $query);
 
@@ -42,16 +42,17 @@ function eliminarImgProducto($idImagen)
 {
     global $conexion;
 
-    // Prepara la consulta
-    $query = "DELETE FROM imagenes_productos WHERE id_imagen = $idImagen";
+    // Prepara la consulta para evitar inyecciones SQL
+    $query = "DELETE FROM imagenes_productos WHERE id_imagen = ?";
+    $stmt = mysqli_prepare($conexion, $query);
 
-    if (mysqli_query($conexion, $query)) {
-        echo 'Imagen eliminada correctamente';
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "i", $idImagen);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
     } else {
-        echo "Error eliminando la imagen: " . mysqli_error($conexion);
+        return "Error: " . mysqli_error($conexion);
     }
-
-    mysqli_close($conexion);
 }
 
 ?>

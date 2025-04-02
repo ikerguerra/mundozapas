@@ -74,7 +74,7 @@ $productos = obtenerProductosController();
                                                     method="POST" class="needs-validation" novalidate="">
                                                     <input type="hidden" name="accion" value="eliminar">
                                                     <input type="hidden" name="id_producto"
-                                                        value="<?php echo $producto['id_producto'] ?>">
+                                                        value="<?= $producto['id_producto'] ?>">
                                                     <button class="btn btn-form no-pointer" type="submit"><i
                                                             class="fa fa-trash"></i></button>
                                                 </form>
@@ -92,30 +92,42 @@ $productos = obtenerProductosController();
                     <div class="container mt-5">
                         <h2>Añadir zapatilla</h2>
                         <form action="../../controllers/productoControlador.php" method="POST"
-                            enctype="multipart/form-data">
+                            enctype="multipart/form-data" class="needs-validation" novalidate>
                             <input type="hidden" name="accion" value="insertar">
                             <div id="card-elemen" class="row g-3">
                                 <div class="col-sm-6">
                                     <label for="nombre" class="form-label">Nombre</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre"
                                         placeholder="Nombre" value="" required>
+                                    <div class="invalid-feedback">
+                                        El campo nombre es obligatorio
+                                    </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <label for="precio" class="form-label">Precio</label>
                                     <input type="text" class="form-control" id="precio" name="precio"
                                         placeholder="Precio" value="" required>
+                                    <div class="invalid-feedback">
+                                        El campo precio es obligatorio
+                                    </div>
                                 </div>
 
                                 <div class="col-12">
                                     <label for="descripcion" class="form-label">Descripción</label>
                                     <textarea class="form-control" id="descripcion" name="descripcion"
                                         placeholder="Descripción" required></textarea>
+                                    <div class="invalid-feedback">
+                                        El campo descripción es obligatorio
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFileMultiple" class="form-label">Selecciona imágenes</label>
                                     <input class="form-control" type="file" name="formFileMultiple[]"
                                         id="formFileMultiple" multiple required>
+                                    <div class="invalid-feedback">
+                                        Seleccionar al menos una imagen.
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" name="upload">Añadir</button>

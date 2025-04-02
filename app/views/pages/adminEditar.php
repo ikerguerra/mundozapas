@@ -37,26 +37,36 @@ $imagenes = obtenerImgsPorProductoController($idProducto);
                     <div class="container mt-5">
                         <h2>Editar zapatilla</h2>
                         <form id="actualizarForm" action="../../controllers/productoControlador.php" method="POST"
-                            enctype="multipart/form-data">
+                            enctype="multipart/form-data" class="needs-validation" novalidate>
                             <input type="hidden" name="accion" value="editar">
                             <input type="hidden" name="id_producto" value="<?= $idProducto ?>">
                             <div id="card-elemen" class="row g-3">
                                 <div class="col-sm-6">
                                     <label for="nombre" class="form-label">Nombre</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre"
-                                        placeholder="Nombre" value="<?= $zapatilla['nombre_producto'] ?>">
+                                        placeholder="Nombre" value="<?= $zapatilla['nombre_producto'] ?>" required>
+                                    <div class="invalid-feedback">
+                                        El campo nombre es obligatorio
+                                    </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <label for="precio" class="form-label">Precio</label>
                                     <input type="text" class="form-control" id="precio" name="precio"
-                                        placeholder="Precio" value="<?= $zapatilla['precio_producto'] ?>">
+                                        placeholder="Precio" value="<?= $zapatilla['precio_producto'] ?>" required>
+                                    <div class="invalid-feedback">
+                                        El campo precio es obligatorio
+                                    </div>
                                 </div>
 
                                 <div class="col-12">
                                     <label for="descripcion" class="form-label">Descripción</label>
                                     <textarea class="form-control" id="descripcion" name="descripcion"
-                                        placeholder="Descripción"><?= $zapatilla['descripcion_producto'] ?></textarea>
+                                        placeholder="Descripción"
+                                        required><?= $zapatilla['descripcion_producto'] ?></textarea>
+                                    <div class="invalid-feedback">
+                                        El campo descripción es obligatorio
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFileMultiple" class="form-label">Selecciona imágenes</label>
@@ -67,15 +77,17 @@ $imagenes = obtenerImgsPorProductoController($idProducto);
                             </div>
                             <button type="submit" class="btn btn-primary" name="upload">Actualizar</button>
                         </form>
-                        
+
                         <!-- Mostrar imágenes existentes -->
                         <div class="my-3">
-                            <label class="form-label">Imágenes existentes</label>   
+                            <label class="form-label">Imágenes existentes</label>
                             <div class="row">
                                 <?php foreach ($imagenes as $imagen) { ?>
                                     <div class="col-sm-2">
-                                        <img src="<?php echo MIURL;?>public/assets/img/<?= htmlspecialchars($imagen['imagen_url']) ?>" class="img-thumbnail" alt="<?= $zapatilla['nombre_producto'] ?>">
-                                        <form id="deleteImgForm" action="../../controllers/imgsProductoControlador.php" method="POST" class="mt-2">
+                                        <img src="<?php echo MIURL; ?>public/assets/img/<?= htmlspecialchars($imagen['imagen_url']) ?>"
+                                            class="img-thumbnail" alt="<?= $zapatilla['nombre_producto'] ?>">
+                                        <form id="deleteImgForm" action="../../controllers/imgsProductoControlador.php"
+                                            method="POST" class="mt-2">
                                             <input type="hidden" name="accion" value="eliminar_imagen">
                                             <input type="hidden" name="id_imagen" value="<?= $imagen['id_imagen'] ?>">
                                             <input type="hidden" name="imagen_url" value="<?= $imagen['imagen_url'] ?>">

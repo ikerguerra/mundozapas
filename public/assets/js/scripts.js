@@ -75,3 +75,24 @@ document.querySelectorAll('#deleteImgForm').forEach(form => {
         });
     });
 });
+
+// Script para activar la validación de Bootstrap
+(function () {
+    'use strict';
+
+    // Obtén todos los formularios que necesitan validación
+    var forms = document.querySelectorAll('.needs-validation');
+
+    // Itera sobre ellos y evita el envío si no son válidos
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            form.classList.add('was-validated');
+        }, false);
+    });
+})();
+
