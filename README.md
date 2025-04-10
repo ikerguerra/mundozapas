@@ -31,3 +31,10 @@ Esto descargará Bootstrap dentro del directorio vendor/twbs/bootstrap/.
 ```sh
 sass public/assets/scss/custom.scss public/assets/css/custom.css
 ```
+
+## Workflows con GitHub Actions
+### Automatización de un Despliegue Continuo en el servidor InfinityFree
+
+Creación del fichero deploy.yml\
+Para este código habría que configurar las variables en Settings/Secrets and Variables/Actions\
+Rellenar las Repository Secrets con los datos del servidor\
