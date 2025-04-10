@@ -1,4 +1,4 @@
-name: Deploy to InfinityFree
+name: Deploy to CDmon
 
 on:
   push:
@@ -20,4 +20,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         protocol: ftp
-        server-dir: htdocs/
+        server-dir: web/
