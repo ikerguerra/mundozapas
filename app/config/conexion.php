@@ -1,11 +1,17 @@
 <?php
+// Configuracion para CDmon
+// -------------------------------------------------
+$dbname = 'mundozapas';
+$host = 'localhost';
+$user = 'mymundozapb2';
+$pass = 'n4f4JJUO';
 
 // Configuracion para local
 // -------------------------------------------------
-$dbname = 'productos';
-$host = 'localhost';
-$user = 'root';
-$pass = '';
+// $dbname = 'productos';
+// $host = 'localhost';
+// $user = 'root';
+// $pass = '';
 
 try {
     $conexion = mysqli_connect($host, $user, $pass, $dbname);
